@@ -1,0 +1,162 @@
+﻿<Window x:Class="CodeCompendium.WpfBinarySerializationExample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="Binary Serialization Example"
+        Width="800"
+        Height="450"
+        mc:Ignorable="d">
+   <Window.Resources>
+      <Style x:Key="_labelTextBlockStyle" TargetType="TextBlock">
+         <Setter Property="FontSize" Value="10" />
+         <Setter Property="Foreground" Value="Gray" />
+         <Setter Property="Margin" Value="0,5,0,2" />
+      </Style>
+
+      <Style x:Key="_serializeButtonStyle" TargetType="Button">
+         <Setter Property="Margin" Value="0,8,5,2" />
+         <Setter Property="Width" Value="60" />
+         <Setter Property="HorizontalAlignment" Value="Left" />
+         <Setter Property="Padding" Value="2" />
+      </Style>
+   </Window.Resources>
+
+   <Grid Margin="10">
+      <Grid.ColumnDefinitions>
+         <ColumnDefinition Width="*" />
+         <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+
+      <Grid.RowDefinitions>
+         <RowDefinition Height="Auto" />
+         <RowDefinition Height="Auto" />
+         <RowDefinition Height="Auto" />
+         <RowDefinition Height="Auto" />
+         <RowDefinition Height="Auto" />
+         <RowDefinition Height="Auto" />
+         <RowDefinition Height="Auto" />
+         <RowDefinition Height="Auto" />
+         <RowDefinition Height="Auto" />
+         <RowDefinition Height="Auto" />
+      </Grid.RowDefinitions>
+
+      <TextBlock Grid.Row="0"
+                 Grid.Column="0"
+                 Text="Serialization Using [Serializable]" />
+
+      <TextBlock Grid.Row="0"
+                 Grid.Column="1"
+                 Text="Serialization Using BinarySerializer" />
+
+      <TextBlock Grid.Row="1"
+                 Grid.Column="0"
+                 Style="{StaticResource _labelTextBlockStyle}"
+                 Text="Username" />
+
+      <TextBlock Grid.Row="1"
+                 Grid.Column="1"
+                 Style="{StaticResource _labelTextBlockStyle}"
+                 Text="Username" />
+
+      <TextBox Grid.Row="2"
+               Grid.Column="0"
+               Margin="0,0,10,0"
+               Text="{Binding SerializableUserName}" />
+
+      <TextBox Grid.Row="2"
+               Grid.Column="1"
+               Margin="0,0,10,0"
+               Text="{Binding RecordUserName}" />
+
+      <TextBlock Grid.Row="3"
+                 Grid.Column="0"
+                 Style="{StaticResource _labelTextBlockStyle}"
+                 Text="Email" />
+
+      <TextBlock Grid.Row="3"
+                 Grid.Column="1"
+                 Style="{StaticResource _labelTextBlockStyle}"
+                 Text="Email" />
+
+      <TextBox Grid.Row="4"
+               Grid.Column="0"
+               Margin="0,0,10,0"
+               Text="{Binding SerializableUserEmail}" />
+
+      <TextBox Grid.Row="4"
+               Grid.Column="1"
+               Margin="0,0,10,0"
+               Text="{Binding RecordUserEmail}" />
+
+      <TextBlock Grid.Row="5"
+                 Grid.Column="0"
+                 Style="{StaticResource _labelTextBlockStyle}"
+                 Text="Last Login" />
+
+      <TextBlock Grid.Row="5"
+                 Grid.Column="1"
+                 Style="{StaticResource _labelTextBlockStyle}"
+                 Text="Last Login" />
+
+      <TextBox Grid.Row="6"
+               Grid.Column="0"
+               Margin="0,0,10,0"
+               Text="{Binding SerializableUserLastLogin}" />
+
+      <TextBox Grid.Row="6"
+               Grid.Column="1"
+               Margin="0,0,10,0"
+               Text="{Binding RecordUserLastLogin}" />
+
+      <StackPanel Grid.Row="7"
+                  Grid.Column="0"
+                  Orientation="Horizontal">
+         <Button Command="{Binding SaveSerializableUserCommand}"
+                 Content="Save"
+                 Style="{StaticResource _serializeButtonStyle}" />
+
+         <Button Command="{Binding LoadSerializableUserCommand}"
+                 Content="Load"
+                 Style="{StaticResource _serializeButtonStyle}" />
+
+         <Button Command="{Binding ClearSerializableUserCommand}"
+                 Content="Clear"
+                 Style="{StaticResource _serializeButtonStyle}" />
+      </StackPanel>
+
+      <StackPanel Grid.Row="7"
+                  Grid.Column="1"
+                  Orientation="Horizontal">
+         <Button Command="{Binding SaveRecordUserCommand}"
+                 Content="Save"
+                 Style="{StaticResource _serializeButtonStyle}" />
+
+         <Button Command="{Binding LoadRecordUserCommand}"
+                 Content="Load"
+                 Style="{StaticResource _serializeButtonStyle}" />
+
+         <Button Command="{Binding ClearRecordUserCommand}"
+                 Content="Clear"
+                 Style="{StaticResource _serializeButtonStyle}" />
+      </StackPanel>
+
+      <TextBlock Grid.Row="8"
+                 Grid.Column="0"
+                 Style="{StaticResource _labelTextBlockStyle}"
+                 Text="Last File Size" />
+
+      <TextBlock Grid.Row="8"
+                 Grid.Column="1"
+                 Style="{StaticResource _labelTextBlockStyle}"
+                 Text="Last File Size" />
+
+      <TextBlock Grid.Row="9"
+                 Grid.Column="0"
+                 Text="{Binding SerializableUserSaveSize, StringFormat={}{0} bytes}" />
+
+      <TextBlock Grid.Row="9"
+                 Grid.Column="1"
+                 Text="{Binding RecordUserSaveSize, StringFormat={}{0} bytes}" />
+   </Grid>
+</Window>
